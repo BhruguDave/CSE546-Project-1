@@ -23,3 +23,18 @@ def push_to_sqs(file_name, s3_entry_name, queue_url):
         )
     )
     return response
+
+
+def poll_from_sqs(queue_url):
+    response = sqs.receive_message(
+        QueueUrl=queue_url,
+        AttributeNames=[
+            'SentTimestamp'
+        ],
+        MaxNumberOfMessages=1,
+        MessageAttributeNames=[
+            'All'
+        ],
+        WaitTimeSeconds=20
+    )
+    return response
