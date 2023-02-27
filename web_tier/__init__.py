@@ -4,10 +4,10 @@ import os
 from aws_utils import upload_files_to_s3, push_to_sqs, poll_from_sqs, get_messages_from_response_queue
 
 # Change URLs and Bucket Name
-request_queue_url = "https://sqs.us-east-1.amazonaws.com/981183274582/ec3_request_queue"
-response_queue_url = "https://sqs.us-east-1.amazonaws.com/981183274582/ec3_response_queue"
-bucket_url = "http://s3.amazonaws.com/cse-546-ec3-input-bucket-1/"
-bucket_name = "cse-546-ec3-input-bucket-1"
+request_queue_url = "https://sqs.us-east-1.amazonaws.com/125035222225/ec3_request_queue"
+response_queue_url = "https://sqs.us-east-1.amazonaws.com/125035222225/ec3_response_queue"
+bucket_url = "http://s3.amazonaws.com/cse-546-ec3-input-bucket/"
+bucket_name = "cse-546-ec3-input-bucket"
 
 app = Flask(__name__)
 
