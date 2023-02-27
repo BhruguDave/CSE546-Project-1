@@ -11,8 +11,11 @@ bucket_name = "cse-546-ec3-input-bucket"
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello():
+    return make_response(jsonify("Hello world from Group EC3"), 200)
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def upload_files():
     num_of_incoming_reqs = 0
     for uploaded_file in request.files.getlist('myfile'):
@@ -29,9 +32,9 @@ def upload_files():
     for response in responses:
         return make_response(jsonify(response), 200)
 
-
-app.run(
-    host=os.getenv('LISTEN', '0.0.0.0'),
-    port=int(os.getenv('PORT', '8080')),
-    debug=True
-)
+if __name__ == "__main__":
+    app.run(
+        # host=os.getenv('LISTEN', '0.0.0.0'),
+        # port=int(os.getenv('PORT', '8001')),
+        debug=True
+    )

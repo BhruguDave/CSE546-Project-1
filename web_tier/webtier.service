@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn instance for a web tier flask app
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/
+ExecStart=/home/ubuntu/venv/bin/gunicorn -b localhost:8000 app:app
+Restart=always
+[Install]
+WantedBy=multi-user.target
